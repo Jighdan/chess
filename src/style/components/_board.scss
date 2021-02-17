@@ -6,14 +6,11 @@
 }
 
 .board-square {
-	display: grid;
-	place-items: center;
 	background-color: $board-square-color-light;
-	font-size: 3.5rem;
-}
 
-.board-square-highlight {
-	border: 3px dashed red;
+	&-highlight {
+		border: 3px dashed red;
+	}
 }
 
 // Coloring the squares
