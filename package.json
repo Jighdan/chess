@@ -1,0 +1,25 @@
+{
+  "name": "chess",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/Jighdan/chess.git",
+  "author": "Reinny <reynsth@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^7.20.0",
+    "eslint-config-prettier": "^7.2.0",
+    "eslint-plugin-prettier": "^3.3.1",
+    "prettier": "^2.2.1"
+  },
+  "scripts": {
+    "dev": "webpack --watch",
+    "build": "webpack; yarn build:scss",
+    "dev:scss": "dart-sass ./src/style/index.scss ./dist/style.css --watch --no-source-map",
+    "build:scss": "dart-sass ./src/style/index.scss ./dist/style.css --no-source-map"
+  },
+  "dependencies": {
+    "dart-sass": "^1.25.0",
+    "webpack": "^5.21.2",
+    "webpack-cli": "^4.5.0"
+  }
+}

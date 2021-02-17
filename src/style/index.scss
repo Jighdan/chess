@@ -1,0 +1,23 @@
+@import "variables";
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+html,
+body {
+	min-height: 100vh;
+}
+
+body {
+	margin: 0 auto;
+	max-width: 600px;
+	user-select: none;
+}
+
+@import "./components/board";
+@import "./components/piece";
