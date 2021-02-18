@@ -19,16 +19,22 @@ export default class Square {
 	}
 
 	onDrop(event) {
-		event.target.classList.remove("board-square-highlight");
-
 		// Fetch the element that is being dragged
 		const elementBeingDraggedId = event.dataTransfer.getData("text/plain");
 		const elementBeingDragged = document.getElementById(elementBeingDraggedId);
 
-		// Add the element to the square
-		event.target.appendChild(elementBeingDragged);
+		if (event.target.nodeName !== "IMG") {
+			// Remove any element that is within the square element
+			event.target.innerHTML = "";
 
-		// Display the element
+			// Add the dragged element to the square
+			event.target.appendChild(elementBeingDragged);
+		}
+
+		// Remove the square highlight
+		event.target.classList.remove("board-square-highlight");
+
+		// Display the dragged element
 		elementBeingDragged.classList.remove("piece-hide");
 	}
 
