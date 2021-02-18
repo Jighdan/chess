@@ -1,4 +1,4 @@
-import pieces from "../components/pieces/index";
+import Piece from "../components/Piece";
 import Board from "../components/Board";
 
 const getPieceFromCharacter = (character) => {
@@ -12,8 +12,7 @@ const getPieceFromCharacter = (character) => {
 		k: "king",
 	};
 
-	const piece = pieces[types[character.toLowerCase()]];
-	return new piece({ color });
+	return new Piece({ type: types[character.toLowerCase()], color });
 };
 
 const generateBoardFromFen = (fen) => {
