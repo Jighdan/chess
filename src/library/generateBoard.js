@@ -29,7 +29,7 @@ const generateBoardFromFen = (fen) => {
 			currentFile = 0;
 			currentRank--;
 		} else {
-			// If the character is a number skip some iterations
+			// If the character is a number skip the requested files
 			if (!isNaN(character) && !isNaN(parseFloat(character))) {
 				const numberOfFilesToSkip = parseInt(character);
 				currentFile += numberOfFilesToSkip;
@@ -39,13 +39,13 @@ const generateBoardFromFen = (fen) => {
 				const squareNumber = currentRank * 8 + currentFile;
 
 				// Add the piece to the board
-				board.squares[squareNumber].appendChild(piece.render());
+				board.squares[squareNumber].setContent(piece);
 				currentFile++;
 			}
 		}
 	}
 
-	return board.render();
+	return board;
 };
 
 export default generateBoardFromFen;

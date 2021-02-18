@@ -1,7 +1,12 @@
 export default class Square {
-	constructor() {
+	constructor(content) {
 		this.element = document.createElement("div");
+		this.content = content || null;
 		this.element.classList.add("board-square");
+	}
+
+	setContent(payload) {
+		this.content = payload;
 	}
 
 	onDragEnter(event) {
@@ -47,6 +52,11 @@ export default class Square {
 
 	render() {
 		this.addEvents();
+
+		if (this.content) {
+			this.element.appendChild(this.content.render());
+		}
+
 		return this.element;
 	}
 }

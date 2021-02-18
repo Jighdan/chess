@@ -3,12 +3,13 @@ import generateId from "../library/idGenerator";
 
 export default class Piece {
 	constructor({ type, color }) {
-		this.element = document.createElement("img");
+		// Setting the meta attributes
 		this.color = color;
 		this.icon = icons[type][color];
 		this.id = generateId(`${type}-${color}`);
 
-		// Setting the element attributes
+		// Setting the view attributes
+		this.element = document.createElement("img");
 		this.element.classList.add("piece");
 		this.element.setAttribute("src", this.icon);
 		this.element.setAttribute("id", this.id);
