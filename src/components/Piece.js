@@ -2,10 +2,9 @@ import icons from "../library/piecesIconsLinks";
 import generateId from "../library/idGenerator";
 
 export default class Piece {
-	constructor({ type, color, position }) {
+	constructor({ type, color }) {
 		this.element = document.createElement("img");
 		this.color = color;
-		this.position = position;
 		this.icon = icons[type][color];
 		this.id = generateId(`${type}-${color}`);
 
@@ -26,6 +25,9 @@ export default class Piece {
 
 	addEvents() {
 		this.element.addEventListener("dragstart", this.onDragStart);
+		this.element.addEventListener("click", () => {
+			console.log(this);
+		});
 	}
 
 	render() {
