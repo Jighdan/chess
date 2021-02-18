@@ -16,7 +16,7 @@ const getPieceFromCharacter = (character) => {
 	return new piece({ color });
 };
 
-const generateFromFen = (fen) => {
+const generateBoardFromFen = (fen) => {
 	const board = new Board();
 	const piecePlacement = fen.split(" ")[0];
 
@@ -49,4 +49,4 @@ const generateFromFen = (fen) => {
 	return board.render();
 };
 
-export default generateFromFen;
+export default generateBoardFromFen;
