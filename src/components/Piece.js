@@ -11,7 +11,6 @@ export default class Piece {
 		// Setting the element attributes
 		this.element.classList.add("piece");
 		this.element.setAttribute("src", this.icon);
-		this.element.setAttribute("loading", "lazy");
 		this.element.setAttribute("id", this.id);
 		this.element.setAttribute("draggable", "true");
 	}
@@ -25,9 +24,6 @@ export default class Piece {
 
 	addEvents() {
 		this.element.addEventListener("dragstart", this.onDragStart);
-		this.element.addEventListener("click", () => {
-			console.log(this);
-		});
 	}
 
 	render() {
