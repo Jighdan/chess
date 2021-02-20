@@ -6,9 +6,9 @@ export default class Piece {
 		// Setting the meta attributes
 		this.color = color;
 		this.icon = icons[type][color];
-		this.id = generateId(`${type}-${color}`);
 
 		// Setting the view attributes
+		this.id = generateId(`${type}-${color}`);
 		this.element = document.createElement("img");
 		this.element.classList.add("piece");
 		this.element.setAttribute("src", this.icon);
