@@ -1,6 +1,11 @@
 import Piece from "../components/Piece";
 import Board from "../components/Board";
 
+const setCurrentTurnFromActiveColor = (board, activeColor) => {
+	const currentTurnColor = activeColor === "w" ? "white" : false;
+	board.currentTurnColor = currentTurnColor;
+};
+
 const getPieceFromCharacter = (character) => {
 	const color = character === character.toUpperCase() ? "black" : "white";
 	const types = {
@@ -15,9 +20,13 @@ const getPieceFromCharacter = (character) => {
 	return new Piece({ type: types[character.toLowerCase()], color });
 };
 
-const generateBoardFromFen = (fen) => {
-	const board = new Board();
-	const piecePlacement = fen.split(" ")[0];
+const setBoardFromFen = (board, fen) => {
+	const fenSplit = fen.split(" ");
+	const piecePlacement = fenSplit[0];
+	const activeColor = fenSplit[1];
+
+	// Set current turn color
+	setCurrentTurnFromActiveColor(board, activeColor);
 
 	// Keep track of rank and files. Rank starts at the last index
 	let currentRank = 7;
@@ -48,4 +57,4 @@ const generateBoardFromFen = (fen) => {
 	return board;
 };
 
-export default generateBoardFromFen;
+export default setBoardFromFen;
